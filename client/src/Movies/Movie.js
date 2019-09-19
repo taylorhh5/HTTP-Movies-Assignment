@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import MovieCard from "./MovieCard";
+import UpdateForm from './UpdateMovie.js'
 export default class Movie extends React.Component {
   constructor(props) {
     super(props);
@@ -38,6 +39,7 @@ export default class Movie extends React.Component {
 
     return (
       <div className="save-wrapper">
+        <h1>Movie.js</h1>
         <MovieCard movie={this.state.movie} />
         <div className="save-button" onClick={this.saveMovie}>
           Save
