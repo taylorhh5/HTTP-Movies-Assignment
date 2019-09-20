@@ -1,23 +1,37 @@
 import React from 'react';
 import axios from 'axios';
 const MovieCard = props => {
-  console.log (props.state, 'props')
+  console.log (props, 'props')
   // const { title, director, metascore, stars } = props.movie;
+
+
+  // const handleDelete = () => {
+    
+  //   axios
+  //     .delete(`http://localhost:5000/api/movies/${props.movie.id}`)
+  //     .then((response) => {
+  //       console.log(response)
+        
+  // //     //   props.history.push('/item-list');
+  // //     // })
+  // //     // .catch(err => console.log(err.response));
+  //     })
+  // };
 
 
   const handleDelete = (id) => {
     
     axios
       .delete(`http://localhost:5000/api/movies/${id}`)
-      .then((response) => {
-        console.log(response)
-  //     //   props.updateItems(res.data);
-  //     //   props.history.push('/item-list');
+      .then(response => {
+       
+        window.location.reload();
+       
   //     // })
   //     // .catch(err => console.log(err.response));
-  //     })
-  // };
-
+      })
+  };
+  
   return (
     <div className="movie-card">
       <h1>MovieCard.js</h1>
@@ -32,7 +46,7 @@ const MovieCard = props => {
 
       {props.movie.stars.map(star => (
         <div key={props.movie.star} className="movie-star">
-          {props.movie.star}
+          {star}
         </div>
       ))}
        <button onClick={() => handleDelete(props.movie.id)}>Delete Movie</button>
