@@ -8,10 +8,12 @@ export default class SavedList extends Component {
   render() {
     return (
       <div className="saved-list">
+        <h1>SavedMovie.js</h1>
         <h3>Saved Movies:</h3>
         {this.props.list.map(movie => {
           return (
             <NavLink
+            
               to={`/movies/${movie.id}`}
               key={movie.id}
               activeClassName="saved-active"
@@ -23,6 +25,7 @@ export default class SavedList extends Component {
         <div className="home-button">
           <Link to="/">Home</Link>
         </div>
+      
       </div>
     );
   }
